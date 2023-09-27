@@ -1,0 +1,52 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(67deg, #1E46A3 0%, #000 48.94%, #C12A23 99.97%);
+}
+
+.title,h1 {
+    text-align: center;
+    color: #FFFCF9;
+    font-size: 40px;
+}
+
+#button-search {
+    display: flex;
+    align-items: center;
+    padding: 5px 5px;
+    gap: 10px;
+    width: 150px;
+    margin: 30px auto;
+    border-radius: 5px;
+    border: 2px solid #1A1A1A;
+}
+
+#text {
+    width: 381px;
+    color: #FFFCF9;
+    text-align: center;
+}
+
+.filme {
+    display: flex;
+    margin-top: 30px;
+    width: 628px;
+    color: #FFFCF9;
+    gap: 34px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    width: 423px;
+    gap: 19px;
+}
