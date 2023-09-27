@@ -5,6 +5,7 @@ const infoFilme = document.querySelector('.filme');
 
 //Event
 buttonSearch.addEventListener('click', (e) => {
+    
     e.preventDefault();
     responseApi();
 })
@@ -16,7 +17,7 @@ const showFilme = (dados) => {
 
     const poster = document.createElement('img');
     poster.classList.add('poster');
-    poster.setAttribute('src', `${dados.belongs_to_collection.poster_path}`);
+    poster.setAttribute('src', `https://image.tmdb.org/t/p/w200/${dados.poster_path}`);
     infoFilme.appendChild(poster);
 
     const info = document.createElement('div');
@@ -36,7 +37,9 @@ const showFilme = (dados) => {
 }
 
 const responseApi = async () => {
-    const url = 'https://api.themoviedb.org/3/movie/11?api_key=f070b87bec9da898ca41775f2b07b43e';
+
+    const numero = numAleatorio();
+    const url = `https://api.themoviedb.org/3/movie/${numero}?api_key=f070b87bec9da898ca41775f2b07b43e&language=pt-BR`;
     try {
         const response = await fetch(url);
         if (response.ok) {
@@ -46,4 +49,9 @@ const responseApi = async () => {
     } catch (ex) {
         console.log(`Erro ${ex}`);
     }
+}
+
+const numAleatorio = () => {
+    const number = Math.floor(Math.random() * 10000) + 1;
+    return number;
 }
