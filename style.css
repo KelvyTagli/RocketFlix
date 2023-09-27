@@ -44,13 +44,25 @@ body {
     gap: 34px;
 }
 
-.info {
+.info{
     display: flex;
     flex-direction: column;
     width: 423px;
     gap: 19px;
 }
 
-.hide {
+.erro {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    color: #FFFCF9;
+    margin-top: 30px;
+}
+
+#ops-erro {
+    font-size: 20px;
+}
+
+.hide,.hide-erro {
     display: none;
 }

@@ -1,23 +1,37 @@
 "use strict"
 const buttonSearch = document.querySelector('#button-search');
 const infoFilme = document.querySelector('.hide');
+const notFoundErro = document.querySelector('.hide-erro');
 //info filme
 const poster = document.querySelector('#poster');
 const titulo = document.querySelector('#titulo');
 const descri = document.querySelector('#descricao');
+
 //Event
 buttonSearch.addEventListener('click', (e) => {
     e.preventDefault();
-    infoFilme.classList.remove('hide');
     responseApi();
 })
 
 //function
 const showFilme = (dados) => {
+
+    infoFilme.classList.remove('hide');
+
     poster.setAttribute('src', `https://image.tmdb.org/t/p/w200/${dados.poster_path}`);
     titulo.innerText = dados.title;
     descri.innerText = dados.overview;
     infoFilme.classList.add('filme');
+}
+
+const showErro = () => {
+    notFoundErro.classList.remove('hide-erro');
+    notFoundErro.classList.add('erro');
+}
+
+const hideErro = () => {
+    notFoundErro.classList.remove('erro');
+    notFoundErro.classList.add('hide-erro');
 }
 
 const responseApi = async () => {
@@ -29,7 +43,12 @@ const responseApi = async () => {
         const response = await fetch(url);
         if (response.ok) {
             const dados = await response.json();
+            hideErro();
             showFilme(dados);
+        } else {
+            infoFilme.classList.remove('filme');
+            infoFilme.classList.add('hide');
+            showErro();
         }
     } catch (ex) {
         console.log(`Erro ${ex}`);
