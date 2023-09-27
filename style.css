@@ -50,3 +50,7 @@ body {
     width: 423px;
     gap: 19px;
 }
+
+.hide {
+    display: none;
+}
