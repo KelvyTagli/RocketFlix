@@ -1,11 +1,12 @@
 "use strict"
 const buttonSearch = document.querySelector('#button-search');
-const infoFilme = document.querySelector('.hide');
+const infoFilme = document.querySelector('.filme');
 const notFoundErro = document.querySelector('.erro');
 //info filme
-const poster = document.querySelector('#poster');
-const titulo = document.querySelector('#titulo');
-const descri = document.querySelector('#descricao');
+const detailInfo = document.createElement('div');
+const poster = document.createElement('img');
+const titulo = document.createElement('h2');
+const descri = document.createElement('p');
 //erro
 const img = document.createElement('img');
 const firstText = document.createElement('h3');
@@ -23,17 +24,24 @@ const showFilme = (dados) => {
 
     img.remove();
     divErro.remove();
-    infoFilme.classList.remove('hide');
-    infoFilme.classList.add('filme');
+
+    detailInfo.classList.add('info');
+
     poster.setAttribute('src', `https://image.tmdb.org/t/p/w200/${dados.poster_path}`);
+    infoFilme.appendChild(poster);
+
     titulo.innerText = dados.title;
+    detailInfo.appendChild(titulo);
+
     descri.innerText = dados.overview;
+    detailInfo.appendChild(descri);
+
+    infoFilme.appendChild(detailInfo);
 }
 
 const showErro = () => {
-
-    infoFilme.classList.remove('filme');
-    infoFilme.classList.add('hide');
+    poster.remove();
+    detailInfo.remove();
 
     img.setAttribute('src', './images/poster.png');
     notFoundErro.appendChild(img);
