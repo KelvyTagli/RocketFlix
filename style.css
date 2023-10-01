@@ -39,7 +39,7 @@ body {
 .filme {
     display: flex;
     margin-top: 30px;
-    width: 628px;
+    width: 50vw;
     color: #FFFCF9;
     gap: 34px;
 }
@@ -63,6 +63,22 @@ body {
     font-size: 20px;
 }
 
-.hide {
-    display: none;
+@media screen and (min-width:412px) and (max-width:776px){
+
+    body {
+        justify-content: center;
+        height: auto;
+        padding: 15px;
+    }
+
+   .filme {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+   }
+
+   .erro {
+        width: min-content;
+        flex-direction: column;
+   }
 }
